@@ -77,12 +77,9 @@
 		B7EEA1AC24A55ABD00BF69AE /* unsplash */ = {
 			isa = PBXGroup;
 			children = (
-				B7EEA1AD24A55ABD00BF69AE /* AppDelegate.swift */,
-				B7EEA1B124A55ABD00BF69AE /* ViewController.swift */,
-				B7EEA1B324A55ABD00BF69AE /* Main.storyboard */,
-				B7EEA1B624A55ABF00BF69AE /* Assets.xcassets */,
-				B7EEA1B824A55ABF00BF69AE /* LaunchScreen.storyboard */,
-				B7EEA1BB24A55ABF00BF69AE /* Info.plist */,
+				B7EEA1D024A55EF000BF69AE /* Sources */,
+				B7EEA1CF24A55ED800BF69AE /* Resources */,
+				B7EEA1D124A55F0100BF69AE /* Supporting Files */,
 			);
 			path = unsplash;
 			sourceTree = "<group>";
@@ -94,6 +91,41 @@
 				B7EEA1C624A55ABF00BF69AE /* Info.plist */,
 			);
 			path = unsplashUITests;
+			sourceTree = "<group>";
+		};
+		B7EEA1CF24A55ED800BF69AE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B7EEA1B324A55ABD00BF69AE /* Main.storyboard */,
+				B7EEA1B624A55ABF00BF69AE /* Assets.xcassets */,
+				B7EEA1B824A55ABF00BF69AE /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B7EEA1D024A55EF000BF69AE /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B7EEA20124A5604600BF69AE /* Entry */,
+				B7EEA1B124A55ABD00BF69AE /* ViewController.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B7EEA1D124A55F0100BF69AE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B7EEA1BB24A55ABF00BF69AE /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B7EEA20124A5604600BF69AE /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				B7EEA1AD24A55ABD00BF69AE /* AppDelegate.swift */,
+			);
+			path = Entry;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,7 +392,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2DRRGUP83C;
-				INFOPLIST_FILE = unsplash/Info.plist;
+				INFOPLIST_FILE = "unsplash/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -379,7 +411,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2DRRGUP83C;
-				INFOPLIST_FILE = unsplash/Info.plist;
+				INFOPLIST_FILE = "unsplash/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
