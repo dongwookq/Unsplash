@@ -3,16 +3,30 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B77F177224A5E8CF009C77B0 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77F177124A5E8CF009C77B0 /* AppDependency.swift */; };
+		B77F177424A5F04E009C77B0 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77F177324A5F04E009C77B0 /* UIViewController+Extensions.swift */; };
+		B77F177924A60832009C77B0 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77F177824A60832009C77B0 /* URL+Extensions.swift */; };
+		B77F177B24A6116B009C77B0 /* ListPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77F177A24A6116B009C77B0 /* ListPhotosViewController.swift */; };
+		B77F177D24A6118A009C77B0 /* ListPhotosViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77F177C24A6118A009C77B0 /* ListPhotosViewCell.swift */; };
 		B7EEA1AE24A55ABD00BF69AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA1AD24A55ABD00BF69AE /* AppDelegate.swift */; };
-		B7EEA1B224A55ABD00BF69AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA1B124A55ABD00BF69AE /* ViewController.swift */; };
 		B7EEA1B524A55ABD00BF69AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7EEA1B324A55ABD00BF69AE /* Main.storyboard */; };
 		B7EEA1B724A55ABF00BF69AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7EEA1B624A55ABF00BF69AE /* Assets.xcassets */; };
 		B7EEA1BA24A55ABF00BF69AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7EEA1B824A55ABF00BF69AE /* LaunchScreen.storyboard */; };
 		B7EEA1C524A55ABF00BF69AE /* unsplashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA1C424A55ABF00BF69AE /* unsplashUITests.swift */; };
+		B7EEA20624A5735A00BF69AE /* UnsplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA20524A5735A00BF69AE /* UnsplashService.swift */; };
+		B7EEA20924A5749100BF69AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B7EEA20824A5749100BF69AE /* Alamofire */; };
+		B7EEA20C24A574F600BF69AE /* SessionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA20B24A574F600BF69AE /* SessionManagerProtocol.swift */; };
+		B7EEA21024A5784000BF69AE /* PhotoListResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA20F24A5784000BF69AE /* PhotoListResult.swift */; };
+		B7EEA21A24A5831200BF69AE /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA21324A5831200BF69AE /* Urls.swift */; };
+		B7EEA21B24A5831200BF69AE /* Profile_image.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA21424A5831200BF69AE /* Profile_image.swift */; };
+		B7EEA21D24A5831200BF69AE /* Sponsorship.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA21624A5831200BF69AE /* Sponsorship.swift */; };
+		B7EEA21E24A5831200BF69AE /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA21724A5831200BF69AE /* Sponsor.swift */; };
+		B7EEA21F24A5831200BF69AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA21824A5831200BF69AE /* User.swift */; };
+		B7EEA22024A5831200BF69AE /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA21924A5831200BF69AE /* Links.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B77F177124A5E8CF009C77B0 /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
+		B77F177324A5F04E009C77B0 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		B77F177824A60832009C77B0 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		B77F177A24A6116B009C77B0 /* ListPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPhotosViewController.swift; sourceTree = "<group>"; };
+		B77F177C24A6118A009C77B0 /* ListPhotosViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPhotosViewCell.swift; sourceTree = "<group>"; };
 		B7EEA1AA24A55ABD00BF69AE /* unsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7EEA1AD24A55ABD00BF69AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B7EEA1B124A55ABD00BF69AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B7EEA1B424A55ABD00BF69AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B7EEA1B624A55ABF00BF69AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7EEA1B924A55ABF00BF69AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +54,15 @@
 		B7EEA1C024A55ABF00BF69AE /* unsplashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unsplashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7EEA1C424A55ABF00BF69AE /* unsplashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unsplashUITests.swift; sourceTree = "<group>"; };
 		B7EEA1C624A55ABF00BF69AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7EEA20524A5735A00BF69AE /* UnsplashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashService.swift; sourceTree = "<group>"; };
+		B7EEA20B24A574F600BF69AE /* SessionManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerProtocol.swift; sourceTree = "<group>"; };
+		B7EEA20F24A5784000BF69AE /* PhotoListResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListResult.swift; sourceTree = "<group>"; };
+		B7EEA21324A5831200BF69AE /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
+		B7EEA21424A5831200BF69AE /* Profile_image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_image.swift; sourceTree = "<group>"; };
+		B7EEA21624A5831200BF69AE /* Sponsorship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sponsorship.swift; sourceTree = "<group>"; };
+		B7EEA21724A5831200BF69AE /* Sponsor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
+		B7EEA21824A5831200BF69AE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B7EEA21924A5831200BF69AE /* Links.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7EEA20924A5749100BF69AE /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +135,10 @@
 			isa = PBXGroup;
 			children = (
 				B7EEA20124A5604600BF69AE /* Entry */,
-				B7EEA1B124A55ABD00BF69AE /* ViewController.swift */,
+				B7EEA20424A5732C00BF69AE /* Services */,
+				B7EEA20A24A574DE00BF69AE /* Protocols */,
+				B7EEA20D24A577C900BF69AE /* Models */,
+				B7EEA20E24A577EE00BF69AE /* ViewControllers */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -124,8 +155,50 @@
 			isa = PBXGroup;
 			children = (
 				B7EEA1AD24A55ABD00BF69AE /* AppDelegate.swift */,
+				B77F177124A5E8CF009C77B0 /* AppDependency.swift */,
 			);
 			path = Entry;
+			sourceTree = "<group>";
+		};
+		B7EEA20424A5732C00BF69AE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B7EEA20524A5735A00BF69AE /* UnsplashService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B7EEA20A24A574DE00BF69AE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B7EEA20B24A574F600BF69AE /* SessionManagerProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B7EEA20D24A577C900BF69AE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B7EEA20F24A5784000BF69AE /* PhotoListResult.swift */,
+				B7EEA21924A5831200BF69AE /* Links.swift */,
+				B7EEA21424A5831200BF69AE /* Profile_image.swift */,
+				B7EEA21724A5831200BF69AE /* Sponsor.swift */,
+				B7EEA21624A5831200BF69AE /* Sponsorship.swift */,
+				B7EEA21324A5831200BF69AE /* Urls.swift */,
+				B7EEA21824A5831200BF69AE /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B7EEA20E24A577EE00BF69AE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B77F177A24A6116B009C77B0 /* ListPhotosViewController.swift */,
+				B77F177C24A6118A009C77B0 /* ListPhotosViewCell.swift */,
+				B77F177324A5F04E009C77B0 /* UIViewController+Extensions.swift */,
+				B77F177824A60832009C77B0 /* URL+Extensions.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +217,9 @@
 			dependencies = (
 			);
 			name = unsplash;
+			packageProductDependencies = (
+				B7EEA20824A5749100BF69AE /* Alamofire */,
+			);
 			productName = unsplash;
 			productReference = B7EEA1AA24A55ABD00BF69AE /* unsplash.app */;
 			productType = "com.apple.product-type.application";
@@ -194,6 +270,9 @@
 				Base,
 			);
 			mainGroup = B7EEA1A124A55ABD00BF69AE;
+			packageReferences = (
+				B7EEA20724A5749100BF69AE /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = B7EEA1AB24A55ABD00BF69AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -229,8 +308,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7EEA1B224A55ABD00BF69AE /* ViewController.swift in Sources */,
+				B7EEA21E24A5831200BF69AE /* Sponsor.swift in Sources */,
+				B7EEA21D24A5831200BF69AE /* Sponsorship.swift in Sources */,
+				B7EEA20C24A574F600BF69AE /* SessionManagerProtocol.swift in Sources */,
+				B7EEA21B24A5831200BF69AE /* Profile_image.swift in Sources */,
 				B7EEA1AE24A55ABD00BF69AE /* AppDelegate.swift in Sources */,
+				B7EEA22024A5831200BF69AE /* Links.swift in Sources */,
+				B77F177924A60832009C77B0 /* URL+Extensions.swift in Sources */,
+				B77F177B24A6116B009C77B0 /* ListPhotosViewController.swift in Sources */,
+				B77F177224A5E8CF009C77B0 /* AppDependency.swift in Sources */,
+				B7EEA21A24A5831200BF69AE /* Urls.swift in Sources */,
+				B7EEA20624A5735A00BF69AE /* UnsplashService.swift in Sources */,
+				B77F177D24A6118A009C77B0 /* ListPhotosViewCell.swift in Sources */,
+				B7EEA21024A5784000BF69AE /* PhotoListResult.swift in Sources */,
+				B7EEA21F24A5831200BF69AE /* User.swift in Sources */,
+				B77F177424A5F04E009C77B0 /* UIViewController+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +587,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B7EEA20724A5749100BF69AE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B7EEA20824A5749100BF69AE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7EEA20724A5749100BF69AE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B7EEA1A224A55ABD00BF69AE /* Project object */;
 }
