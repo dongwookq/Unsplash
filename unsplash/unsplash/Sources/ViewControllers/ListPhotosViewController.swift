@@ -9,11 +9,11 @@
 import UIKit
 import Alamofire
 
-private let reuseIdentifier = "Cell"
+//private let reuseIdentifier = "Cell"
 
 class ListPhotosViewController: UICollectionViewController {
     private let cellReuseIdentifier: String = "listCell"
-
+    var currentIndex: Int = 0
     
     struct Dependency {
       let unsplashService: UnsplashServiceProtocol!
@@ -52,6 +52,12 @@ class ListPhotosViewController: UICollectionViewController {
     
     private func setSearchResult(_ searchResult: [PhotoListResult]) {
         self.photos = searchResult
+        print(searchResult.count)
+        
+//        OperationQueue.main.addOperation {
+//            self.collectionView?.reloadSections(IndexSet(0...0))
+//        }
+
         self.collectionView.reloadData()
     }
     
@@ -64,13 +70,41 @@ class ListPhotosViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
         
+        // 서치바
         
+//        let searchViewController = UISearchController(searchResultsController: nil)
+//        self.navigationItem.searchController = searchViewController
+        
+
     }
 
+    
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        self.collectionViewLayout.invalidateLayout()
+//    }
+    
+    
+//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//        super.viewWillTransition(to: size, with: coordinator)
+//        if let layout =  self.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout{
+//            layout.itemSize = CGSize(width: 200, height: 200)
+//
+//            let controller = UICollectionViewController(collectionViewLayout: layout)
+//
+//        }
+//
+//
+//        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+//            layout.scrollDirection = .horizontal
+//        }
+//    }
+    
+    
     /*
     // MARK: - Navigation
 
@@ -111,6 +145,8 @@ class ListPhotosViewController: UICollectionViewController {
         }
         
         self.configureCell(cell, collectionView: collectionView, indexPath: indexPath)
+        
+        self.currentIndex = indexPath.row
     }
     
 
@@ -123,12 +159,26 @@ class ListPhotosViewController: UICollectionViewController {
     }
     */
 
-    /*
     // Uncomment this method to specify if the specified item should be selected
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        
+        // paging
+        self.collectionView.isPagingEnabled = true
+
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.collectionView.backgroundColor = .black
+
+        self.makeUI()
+
+        
+        self.collectionView.scrollToItem(at: indexPath, at: .right, animated: false)
+
         return true
     }
-    */
 
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
@@ -144,6 +194,33 @@ class ListPhotosViewController: UICollectionViewController {
     
     }
     */
+    
+    func makeUI() {
+        let closeButton = UIButton(type: .system)
+        closeButton.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
+        closeButton.setTitle("Close", for: .normal)
+        closeButton.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+        self.view.addSubview(closeButton)
+    }
+    
+    @objc func buttonAction(_ sender:UIButton!) {
+        
+       print("Button tapped")
+
+        self.collectionView.isPagingEnabled = false
+
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .vertical
+        }
+
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.collectionView.backgroundColor = .white
+
+        self.collectionView.scrollToItem(at: IndexPath(row: self.currentIndex, section: 0), at: .top, animated: false)
+
+
+    }
+
 
 }
 
@@ -153,6 +230,7 @@ extension ListPhotosViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        print(indexPath.row)
         guard let flowLayout: UICollectionViewFlowLayout =
             self.collectionViewLayout as? UICollectionViewFlowLayout else { return CGSize.zero}
         

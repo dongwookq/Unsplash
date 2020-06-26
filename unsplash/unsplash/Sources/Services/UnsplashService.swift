@@ -75,14 +75,14 @@ final class UnsplashService: UnsplashServiceProtocol {
             }
         }
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        //UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         imageDispatchQueue.async {
-            defer {
-                DispatchQueue.main.async {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                }
-            }
+//            defer {
+//                DispatchQueue.main.async {
+//                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//                }
+//            }
             
             guard let data: Data = try? Data(contentsOf: url) else {
                 print("데이터 - 이미지 변환 실패")
