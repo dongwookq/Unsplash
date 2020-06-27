@@ -54,6 +54,7 @@ class ListPhotosViewController: UICollectionViewController {
 // MARK: - Private Methods
 extension ListPhotosViewController {
     
+    // MARK: 컬렉션뷰 설정
     private func configureCell(_ cell: ListPhotosViewCell,
                                collectionView: UICollectionView,
                                indexPath: IndexPath) {
@@ -76,6 +77,7 @@ extension ListPhotosViewController {
         }
     }
     
+    // MARK: 목록 요청
     private func requestList() {
         let pageNumber = self.photos.count / 20
         
@@ -91,6 +93,7 @@ extension ListPhotosViewController {
         }
     }
     
+    // MARK: 검색 요청
     private func requestSearch(keyword: String) {
         self.cancelPreviousSearchRequest()
         self.currentSearchRequest = self.dependency.unsplashService.search(keyword: keyword) { result in
@@ -106,23 +109,26 @@ extension ListPhotosViewController {
         }
     }
     
+    // MARK: 이미지 목록 결과
     private func setListResult(_ listResult: [PhotoListResult]) {
         self.photos = listResult
         print(listResult.count)
         self.collectionView.reloadData()
     }
     
+    // MARK: 검색 결과
     private func setSearchResult(_ searchResult: SearchResult) {
         self.searchs = searchResult.results!
         print(self.searchs)
         self.collectionView.reloadData()
     }
     
-    
+    // MARK: 이전 검색 취소
     private func cancelPreviousSearchRequest() {
       self.currentSearchRequest?.cancel()
     }
 
+    // MARK: 검색 결과화면 닫기 버튼
     private func searchCloseButton(_ isShow: Bool) {
         if isShow {
             let searchCloseButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(searchCloseAction(_:)))
@@ -135,6 +141,7 @@ extension ListPhotosViewController {
         }
     }
     
+    // MARK: 상세화면 닫기 액션
     @objc func closeAction(_ sender:UIButton!) {
         self.collectionView.isPagingEnabled = false
 
@@ -151,6 +158,7 @@ extension ListPhotosViewController {
         
     }
     
+    // MARK: 검색화면 닫기 액션
     @objc func searchCloseAction(_ sender:Any!) {
         self.searchCloseButton(false)
 
@@ -166,7 +174,6 @@ extension ListPhotosViewController {
         return 1
     }
 
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         switch self.currentSceenType {
@@ -175,7 +182,6 @@ extension ListPhotosViewController {
         case .search:
             return self.searchs.count
         }
-        
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -183,7 +189,6 @@ extension ListPhotosViewController {
         let cell: ListPhotosViewCell
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: "listCell",
                                                   for: indexPath) as! ListPhotosViewCell
-        
 
         return cell
     }
@@ -197,28 +202,16 @@ extension ListPhotosViewController {
         }
         
         self.configureCell(cell, collectionView: collectionView, indexPath: indexPath)
-        
         self.currentIndex = indexPath.row
-        
     }
-
 }
 
 
 // MARK: - UICollectionView Delegate
 extension ListPhotosViewController {
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    // Uncomment this method to specify if the specified item should be selected
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         
-        // paging
         self.collectionView.isPagingEnabled = true
 
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -228,29 +221,11 @@ extension ListPhotosViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.collectionView.backgroundColor = .black
 
-        //self.makeUI()
         self.closeButton.isHidden = false
-
-        
         self.collectionView.scrollToItem(at: indexPath, at: .right, animated: false)
 
         return true
     }
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
 }
 
 // MARK: - UICollectionViewDelegate FlowLayout
@@ -283,28 +258,15 @@ extension ListPhotosViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - UISearchBar Delegate
 extension ListPhotosViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         self.currentSceenType = .search
         
       if let text = searchBar.text {
         self.requestSearch(keyword: text)
       }
-        
         self.searchController.dismiss(animated: true, completion: nil)
         self.searchCloseButton(true)
-        
     }
-    
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        self.searchController.dismiss(animated: true, completion: nil)
-//
-//        self.currentSceenType = .list
-//
-//    }
-
 }
-
-
 
 
 // MARK: - UIViewController Extension
@@ -315,7 +277,6 @@ extension UIViewController {
       alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
       viewController.present(alertController, animated: true, completion: nil)
     }
-
 }
 
 
@@ -328,9 +289,9 @@ class ListPhotosViewCell: UICollectionViewCell {
         super.prepareForReuse()
         self.imageView.image = nil
     }
-
 }
 
+// MARK: - Sceen Type
 enum SceenType {
     case list, search
 }

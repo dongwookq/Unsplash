@@ -27,6 +27,7 @@ final class UnsplashService: UnsplashServiceProtocol {
         self.sessionManager = sessionManager
     }
     
+    // MARK: 검색
     @discardableResult
     func search(keyword: String, completionHandler: @escaping (Result<SearchResult>) -> Void) -> DataRequest {
         
@@ -42,6 +43,7 @@ final class UnsplashService: UnsplashServiceProtocol {
           }
     }
     
+    // MARK: 목록
     @discardableResult
     func list(page: Int, completionHandler: @escaping (Result<[PhotoListResult]>) -> Void) -> DataRequest {
         let url = "https://api.unsplash.com/photos/?"
@@ -62,6 +64,7 @@ final class UnsplashService: UnsplashServiceProtocol {
     let imageDispatchQueue: DispatchQueue = DispatchQueue(label: "image")
     var cachedImage: [URL: UIImage] = [:]
 
+    // MARK: 다운로드 이미지
     func download(_ url: URL, contentsView: UIView, completion: @escaping (_ image: UIImage?) -> Void) {
         if let cachedImage: UIImage = self.cachedImage[url] {
             DispatchQueue.main.async {
