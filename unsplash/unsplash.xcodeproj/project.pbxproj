@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B743031C24A70C7600CE6319 /* unsplashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743031B24A70C7600CE6319 /* unsplashTests.swift */; };
+		B743032C24A70D3D00CE6319 /* SessionManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743032B24A70D3D00CE6319 /* SessionManagerStub.swift */; };
+		B743032E24A70DC600CE6319 /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743032D24A70DC600CE6319 /* TestAppDelegate.swift */; };
+		B743033024A70E0500CE6319 /* UnsplashServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743032F24A70E0500CE6319 /* UnsplashServiceStub.swift */; };
+		B743033224A7102800CE6319 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743033124A7102800CE6319 /* TestError.swift */; };
+		B743033624A7109500CE6319 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743033524A7109500CE6319 /* AppDelegateTests.swift */; };
+		B743033824A711ED00CE6319 /* UnsplashServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743033724A711ED00CE6319 /* UnsplashServiceTest.swift */; };
+		B743033A24A7138300CE6319 /* ListPhotosViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743033924A7138300CE6319 /* ListPhotosViewControllerTests.swift */; };
 		B77F177224A5E8CF009C77B0 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77F177124A5E8CF009C77B0 /* AppDependency.swift */; };
 		B77F177B24A6116B009C77B0 /* ListPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77F177A24A6116B009C77B0 /* ListPhotosViewController.swift */; };
 		B77F177F24A6EA84009C77B0 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77F177E24A6EA84009C77B0 /* SearchResult.swift */; };
@@ -16,7 +24,6 @@
 		B7EEA1B524A55ABD00BF69AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7EEA1B324A55ABD00BF69AE /* Main.storyboard */; };
 		B7EEA1B724A55ABF00BF69AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7EEA1B624A55ABF00BF69AE /* Assets.xcassets */; };
 		B7EEA1BA24A55ABF00BF69AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7EEA1B824A55ABF00BF69AE /* LaunchScreen.storyboard */; };
-		B7EEA1C524A55ABF00BF69AE /* unsplashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA1C424A55ABF00BF69AE /* unsplashUITests.swift */; };
 		B7EEA20624A5735A00BF69AE /* UnsplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA20524A5735A00BF69AE /* UnsplashService.swift */; };
 		B7EEA20924A5749100BF69AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B7EEA20824A5749100BF69AE /* Alamofire */; };
 		B7EEA20C24A574F600BF69AE /* SessionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEA20B24A574F600BF69AE /* SessionManagerProtocol.swift */; };
@@ -30,7 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B7EEA1C124A55ABF00BF69AE /* PBXContainerItemProxy */ = {
+		B743031E24A70C7600CE6319 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B7EEA1A224A55ABD00BF69AE /* Project object */;
 			proxyType = 1;
@@ -40,6 +47,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B743031924A70C7600CE6319 /* unsplashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unsplashTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B743031B24A70C7600CE6319 /* unsplashTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unsplashTests.swift; sourceTree = "<group>"; };
+		B743031D24A70C7600CE6319 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B743032B24A70D3D00CE6319 /* SessionManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerStub.swift; sourceTree = "<group>"; };
+		B743032D24A70DC600CE6319 /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
+		B743032F24A70E0500CE6319 /* UnsplashServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashServiceStub.swift; sourceTree = "<group>"; };
+		B743033124A7102800CE6319 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		B743033524A7109500CE6319 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
+		B743033724A711ED00CE6319 /* UnsplashServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashServiceTest.swift; sourceTree = "<group>"; };
+		B743033924A7138300CE6319 /* ListPhotosViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPhotosViewControllerTests.swift; sourceTree = "<group>"; };
 		B77F177124A5E8CF009C77B0 /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
 		B77F177A24A6116B009C77B0 /* ListPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPhotosViewController.swift; sourceTree = "<group>"; };
 		B77F177E24A6EA84009C77B0 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
@@ -51,9 +68,6 @@
 		B7EEA1B624A55ABF00BF69AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7EEA1B924A55ABF00BF69AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7EEA1BB24A55ABF00BF69AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B7EEA1C024A55ABF00BF69AE /* unsplashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unsplashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7EEA1C424A55ABF00BF69AE /* unsplashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unsplashUITests.swift; sourceTree = "<group>"; };
-		B7EEA1C624A55ABF00BF69AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7EEA20524A5735A00BF69AE /* UnsplashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashService.swift; sourceTree = "<group>"; };
 		B7EEA20B24A574F600BF69AE /* SessionManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerProtocol.swift; sourceTree = "<group>"; };
 		B7EEA20F24A5784000BF69AE /* PhotoListResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListResult.swift; sourceTree = "<group>"; };
@@ -66,6 +80,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B743031624A70C7600CE6319 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B7EEA1A724A55ABD00BF69AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -74,21 +95,94 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B7EEA1BD24A55ABF00BF69AE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B743031A24A70C7600CE6319 /* unsplashTests */ = {
+			isa = PBXGroup;
+			children = (
+				B743032324A70C8900CE6319 /* Sources */,
+				B743031B24A70C7600CE6319 /* unsplashTests.swift */,
+				B743031D24A70C7600CE6319 /* Info.plist */,
+			);
+			path = unsplashTests;
+			sourceTree = "<group>";
+		};
+		B743032324A70C8900CE6319 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B743032424A70CAC00CE6319 /* Mocks */,
+				B743032524A70CB900CE6319 /* Entry */,
+				B743032624A70CC400CE6319 /* Services */,
+				B743032724A70CCE00CE6319 /* ViewControllers */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B743032424A70CAC00CE6319 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				B743032824A70D0A00CE6319 /* Networking */,
+				B743032924A70D1300CE6319 /* Services */,
+				B743032A24A70D1C00CE6319 /* Utils */,
+				B743033124A7102800CE6319 /* TestError.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		B743032524A70CB900CE6319 /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				B743033524A7109500CE6319 /* AppDelegateTests.swift */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
+		B743032624A70CC400CE6319 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B743033724A711ED00CE6319 /* UnsplashServiceTest.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B743032724A70CCE00CE6319 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B743033924A7138300CE6319 /* ListPhotosViewControllerTests.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B743032824A70D0A00CE6319 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B743032B24A70D3D00CE6319 /* SessionManagerStub.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		B743032924A70D1300CE6319 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B743032D24A70DC600CE6319 /* TestAppDelegate.swift */,
+				B743032F24A70E0500CE6319 /* UnsplashServiceStub.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B743032A24A70D1C00CE6319 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		B7EEA1A124A55ABD00BF69AE = {
 			isa = PBXGroup;
 			children = (
 				B7EEA1AC24A55ABD00BF69AE /* unsplash */,
-				B7EEA1C324A55ABF00BF69AE /* unsplashUITests */,
+				B743031A24A70C7600CE6319 /* unsplashTests */,
 				B7EEA1AB24A55ABD00BF69AE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				B7EEA1AA24A55ABD00BF69AE /* unsplash.app */,
-				B7EEA1C024A55ABF00BF69AE /* unsplashUITests.xctest */,
+				B743031924A70C7600CE6319 /* unsplashTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,15 +204,6 @@
 				B7EEA1D124A55F0100BF69AE /* Supporting Files */,
 			);
 			path = unsplash;
-			sourceTree = "<group>";
-		};
-		B7EEA1C324A55ABF00BF69AE /* unsplashUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B7EEA1C424A55ABF00BF69AE /* unsplashUITests.swift */,
-				B7EEA1C624A55ABF00BF69AE /* Info.plist */,
-			);
-			path = unsplashUITests;
 			sourceTree = "<group>";
 		};
 		B7EEA1CF24A55ED800BF69AE /* Resources */ = {
@@ -204,6 +289,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B743031824A70C7600CE6319 /* unsplashTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B743032224A70C7600CE6319 /* Build configuration list for PBXNativeTarget "unsplashTests" */;
+			buildPhases = (
+				B743031524A70C7600CE6319 /* Sources */,
+				B743031624A70C7600CE6319 /* Frameworks */,
+				B743031724A70C7600CE6319 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B743031F24A70C7600CE6319 /* PBXTargetDependency */,
+			);
+			name = unsplashTests;
+			productName = unsplashTests;
+			productReference = B743031924A70C7600CE6319 /* unsplashTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B7EEA1A924A55ABD00BF69AE /* unsplash */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7EEA1C924A55ABF00BF69AE /* Build configuration list for PBXNativeTarget "unsplash" */;
@@ -224,24 +327,6 @@
 			productReference = B7EEA1AA24A55ABD00BF69AE /* unsplash.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B7EEA1BF24A55ABF00BF69AE /* unsplashUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B7EEA1CC24A55ABF00BF69AE /* Build configuration list for PBXNativeTarget "unsplashUITests" */;
-			buildPhases = (
-				B7EEA1BC24A55ABF00BF69AE /* Sources */,
-				B7EEA1BD24A55ABF00BF69AE /* Frameworks */,
-				B7EEA1BE24A55ABF00BF69AE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B7EEA1C224A55ABF00BF69AE /* PBXTargetDependency */,
-			);
-			name = unsplashUITests;
-			productName = unsplashUITests;
-			productReference = B7EEA1C024A55ABF00BF69AE /* unsplashUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -252,12 +337,12 @@
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = kakaopay;
 				TargetAttributes = {
-					B7EEA1A924A55ABD00BF69AE = {
-						CreatedOnToolsVersion = 11.5;
-					};
-					B7EEA1BF24A55ABF00BF69AE = {
+					B743031824A70C7600CE6319 = {
 						CreatedOnToolsVersion = 11.5;
 						TestTargetID = B7EEA1A924A55ABD00BF69AE;
+					};
+					B7EEA1A924A55ABD00BF69AE = {
+						CreatedOnToolsVersion = 11.5;
 					};
 				};
 			};
@@ -278,12 +363,19 @@
 			projectRoot = "";
 			targets = (
 				B7EEA1A924A55ABD00BF69AE /* unsplash */,
-				B7EEA1BF24A55ABF00BF69AE /* unsplashUITests */,
+				B743031824A70C7600CE6319 /* unsplashTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B743031724A70C7600CE6319 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B7EEA1A824A55ABD00BF69AE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,16 +386,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B7EEA1BE24A55ABF00BF69AE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B743031524A70C7600CE6319 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B743032C24A70D3D00CE6319 /* SessionManagerStub.swift in Sources */,
+				B743033A24A7138300CE6319 /* ListPhotosViewControllerTests.swift in Sources */,
+				B743033224A7102800CE6319 /* TestError.swift in Sources */,
+				B743033824A711ED00CE6319 /* UnsplashServiceTest.swift in Sources */,
+				B743033024A70E0500CE6319 /* UnsplashServiceStub.swift in Sources */,
+				B743031C24A70C7600CE6319 /* unsplashTests.swift in Sources */,
+				B743033624A7109500CE6319 /* AppDelegateTests.swift in Sources */,
+				B743032E24A70DC600CE6319 /* TestAppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B7EEA1A624A55ABD00BF69AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -326,21 +426,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B7EEA1BC24A55ABF00BF69AE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B7EEA1C524A55ABF00BF69AE /* unsplashUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B7EEA1C224A55ABF00BF69AE /* PBXTargetDependency */ = {
+		B743031F24A70C7600CE6319 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B7EEA1A924A55ABD00BF69AE /* unsplash */;
-			targetProxy = B7EEA1C124A55ABF00BF69AE /* PBXContainerItemProxy */;
+			targetProxy = B743031E24A70C7600CE6319 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -364,6 +456,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B743032024A70C7600CE6319 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2DRRGUP83C;
+				INFOPLIST_FILE = unsplashTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kakaopay.unsplashTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/unsplash.app/unsplash";
+			};
+			name = Debug;
+		};
+		B743032124A70C7600CE6319 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2DRRGUP83C;
+				INFOPLIST_FILE = unsplashTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kakaopay.unsplashTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/unsplash.app/unsplash";
+			};
+			name = Release;
+		};
 		B7EEA1C724A55ABF00BF69AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -516,49 +648,18 @@
 			};
 			name = Release;
 		};
-		B7EEA1CD24A55ABF00BF69AE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2DRRGUP83C;
-				INFOPLIST_FILE = unsplashUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kakaopay.unsplashUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = unsplash;
-			};
-			name = Debug;
-		};
-		B7EEA1CE24A55ABF00BF69AE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2DRRGUP83C;
-				INFOPLIST_FILE = unsplashUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kakaopay.unsplashUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = unsplash;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B743032224A70C7600CE6319 /* Build configuration list for PBXNativeTarget "unsplashTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B743032024A70C7600CE6319 /* Debug */,
+				B743032124A70C7600CE6319 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B7EEA1A524A55ABD00BF69AE /* Build configuration list for PBXProject "unsplash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -573,15 +674,6 @@
 			buildConfigurations = (
 				B7EEA1CA24A55ABF00BF69AE /* Debug */,
 				B7EEA1CB24A55ABF00BF69AE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B7EEA1CC24A55ABF00BF69AE /* Build configuration list for PBXNativeTarget "unsplashUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B7EEA1CD24A55ABF00BF69AE /* Debug */,
-				B7EEA1CE24A55ABF00BF69AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -25,7 +25,8 @@ class ListPhotosViewController: UICollectionViewController {
     private var currentIndex: Int = 0
     private var currentSearchRequest: DataRequest?
     private var searchs: [Results] = []
-    private var currentSceenType: SceenType = .list
+    var currentSceenType: SceenType = .list
+    var activityIndicatorView: UIActivityIndicatorView!
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -76,7 +77,9 @@ extension ListPhotosViewController {
     }
     
     private func requestList() {
-        self.currentListRequest = self.dependency.unsplashService.list() { result in
+        let pageNumber = self.photos.count / 20
+        
+        self.currentListRequest = self.dependency.unsplashService.list(page: pageNumber) { result in
             
             switch result {
             case let .success(photoListResult):
@@ -90,8 +93,6 @@ extension ListPhotosViewController {
     
     private func requestSearch(keyword: String) {
         self.cancelPreviousSearchRequest()
-        self.setLoading(true)
-        
         self.currentSearchRequest = self.dependency.unsplashService.search(keyword: keyword) { result in
             
               switch result {
@@ -117,28 +118,24 @@ extension ListPhotosViewController {
         self.collectionView.reloadData()
     }
     
-
     
     private func cancelPreviousSearchRequest() {
       self.currentSearchRequest?.cancel()
     }
 
-    private func setLoading(_ isLoading: Bool) {
-      if isLoading {
-//        self.activityIndicatorView.startAnimating()
-//        self.tableView.isHidden = true
-      } else {
-//        self.activityIndicatorView.stopAnimating()
-//        self.tableView.isHidden = false
-      }
+    private func searchCloseButton(_ isShow: Bool) {
+        if isShow {
+            let searchCloseButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(searchCloseAction(_:)))
+            self.navigationItem.rightBarButtonItem  = searchCloseButton
+            self.navigationItem.hidesSearchBarWhenScrolling = true
+        } else {
+            self.navigationItem.rightBarButtonItem  = nil
+            self.searchController.dismiss(animated: true, completion: nil)
+            self.navigationItem.hidesSearchBarWhenScrolling = false
+        }
     }
     
-    
-    
     @objc func closeAction(_ sender:UIButton!) {
-        
-       print("Button tapped")
-
         self.collectionView.isPagingEnabled = false
 
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -153,20 +150,6 @@ extension ListPhotosViewController {
         self.closeButton.isHidden = true
         
     }
-    
-    private func searchCloseButton(_ isShow: Bool) {
-        if isShow {
-            let searchCloseButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(searchCloseAction(_:)))
-            self.navigationItem.rightBarButtonItem  = searchCloseButton
-            self.navigationItem.hidesSearchBarWhenScrolling = true
-        } else {
-            self.navigationItem.rightBarButtonItem  = nil
-            self.searchController.dismiss(animated: true, completion: nil)
-            self.navigationItem.hidesSearchBarWhenScrolling = false
-        }
-    }
-    
-
     
     @objc func searchCloseAction(_ sender:Any!) {
         self.searchCloseButton(false)
@@ -216,6 +199,7 @@ extension ListPhotosViewController {
         self.configureCell(cell, collectionView: collectionView, indexPath: indexPath)
         
         self.currentIndex = indexPath.row
+        
     }
 
 }
@@ -275,7 +259,6 @@ extension ListPhotosViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        print(indexPath.row)
         guard let flowLayout: UICollectionViewFlowLayout =
             self.collectionViewLayout as? UICollectionViewFlowLayout else { return CGSize.zero}
         
