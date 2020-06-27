@@ -9,20 +9,49 @@
 import UIKit
 import Alamofire
 
-//private let reuseIdentifier = "Cell"
-
 class ListPhotosViewController: UICollectionViewController {
-    private let cellReuseIdentifier: String = "listCell"
-    var currentIndex: Int = 0
     
+    // MARK: - Properties
     struct Dependency {
       let unsplashService: UnsplashServiceProtocol!
     }
     var dependency: Dependency!
     
-    var currentListRequest: DataRequest?
-    private var photos: [PhotoListResult] = []
+    let searchController = UISearchController(searchResultsController: nil)
+    let closeButton = UIButton(type: .system)
 
+    private var currentListRequest: DataRequest?
+    private var photos: [PhotoListResult] = []
+    private var currentIndex: Int = 0
+    private var currentSearchRequest: DataRequest?
+    private var searchs: [Results] = []
+    private var currentSceenType: SceenType = .list
+    
+    // MARK: - Life cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+
+        self.searchController.searchBar.delegate = self
+        self.searchController.searchBar.autocapitalizationType = .none
+        
+        self.navigationItem.searchController = self.searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+
+        self.closeButton.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
+        self.closeButton.setTitle("Close", for: .normal)
+        self.closeButton.addTarget(self, action: #selector(closeAction(_:)), for: .touchUpInside)
+        self.view.addSubview(closeButton)
+        self.closeButton.isHidden = true
+        
+        self.requestList()
+    }
+    
+}
+
+// MARK: - Private Methods
+extension ListPhotosViewController {
     
     private func configureCell(_ cell: ListPhotosViewCell,
                                collectionView: UICollectionView,
@@ -30,19 +59,28 @@ class ListPhotosViewController: UICollectionViewController {
         
         guard indexPath.row < self.photos.count else { return }
         
-        let imageUrl: URL = URL(string: (self.photos[indexPath.row].urls?.regular)!)!
+        
+        var imgUrlString: String = ""
+        switch self.currentSceenType {
+        case .list:
+            imgUrlString = (self.photos[indexPath.row].urls?.regular)!
+        case .search:
+            imgUrlString = (self.searchs[indexPath.row].urls?.regular)!
+        }
+        
+        let imageUrl: URL = URL(string: imgUrlString)!
         
         self.dependency.unsplashService.download(imageUrl, contentsView: cell.contentView) { (image: UIImage?) in
             cell.imageView.image = image
         }
     }
     
-    func requestPhotos() {
+    private func requestList() {
         self.currentListRequest = self.dependency.unsplashService.list() { result in
             
             switch result {
             case let .success(photoListResult):
-                self.setSearchResult(photoListResult)
+                self.setListResult(photoListResult)
                 
             case let .failure(error):
                 self.showErrorAlert(error: error, viewController: self)
@@ -50,72 +88,96 @@ class ListPhotosViewController: UICollectionViewController {
         }
     }
     
-    private func setSearchResult(_ searchResult: [PhotoListResult]) {
-        self.photos = searchResult
-        print(searchResult.count)
+    private func requestSearch(keyword: String) {
+        self.cancelPreviousSearchRequest()
+        self.setLoading(true)
         
-//        OperationQueue.main.addOperation {
-//            self.collectionView?.reloadSections(IndexSet(0...0))
-//        }
+        self.currentSearchRequest = self.dependency.unsplashService.search(keyword: keyword) { result in
+            
+              switch result {
+              case let .success(searchResult):
+                self.setSearchResult(searchResult)
 
+              case let .failure(error):
+                self.showErrorAlert(error: error, viewController: self)
+              }
+
+        }
+    }
+    
+    private func setListResult(_ listResult: [PhotoListResult]) {
+        self.photos = listResult
+        print(listResult.count)
         self.collectionView.reloadData()
     }
     
+    private func setSearchResult(_ searchResult: SearchResult) {
+        self.searchs = searchResult.results!
+        print(self.searchs)
+        self.collectionView.reloadData()
+    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.requestPhotos()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
-        
-        // 서치바
-        
-//        let searchViewController = UISearchController(searchResultsController: nil)
-//        self.navigationItem.searchController = searchViewController
-        
-
+    
+    private func cancelPreviousSearchRequest() {
+      self.currentSearchRequest?.cancel()
     }
 
-    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        self.collectionViewLayout.invalidateLayout()
-//    }
-    
-    
-//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-//        super.viewWillTransition(to: size, with: coordinator)
-//        if let layout =  self.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout{
-//            layout.itemSize = CGSize(width: 200, height: 200)
-//
-//            let controller = UICollectionViewController(collectionViewLayout: layout)
-//
-//        }
-//
-//
-//        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//            layout.scrollDirection = .horizontal
-//        }
-//    }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    private func setLoading(_ isLoading: Bool) {
+      if isLoading {
+//        self.activityIndicatorView.startAnimating()
+//        self.tableView.isHidden = true
+      } else {
+//        self.activityIndicatorView.stopAnimating()
+//        self.tableView.isHidden = false
+      }
     }
-    */
+    
+    
+    
+    @objc func closeAction(_ sender:UIButton!) {
+        
+       print("Button tapped")
 
-    // MARK: UICollectionViewDataSource
+        self.collectionView.isPagingEnabled = false
+
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .vertical
+        }
+
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.collectionView.backgroundColor = .white
+
+        self.collectionView.scrollToItem(at: IndexPath(row: self.currentIndex, section: 0), at: .top, animated: false)
+
+        self.closeButton.isHidden = true
+        
+    }
+    
+    private func searchCloseButton(_ isShow: Bool) {
+        if isShow {
+            let searchCloseButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(searchCloseAction(_:)))
+            self.navigationItem.rightBarButtonItem  = searchCloseButton
+            self.navigationItem.hidesSearchBarWhenScrolling = true
+        } else {
+            self.navigationItem.rightBarButtonItem  = nil
+            self.searchController.dismiss(animated: true, completion: nil)
+            self.navigationItem.hidesSearchBarWhenScrolling = false
+        }
+    }
+    
+
+    
+    @objc func searchCloseAction(_ sender:Any!) {
+        self.searchCloseButton(false)
+
+        self.currentSceenType = .list
+        self.collectionView.reloadData()
+    }
+}
+
+// MARK: - UICollectionView DataSource
+extension ListPhotosViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -123,13 +185,20 @@ class ListPhotosViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.photos.count
+        
+        switch self.currentSceenType {
+        case .list:
+            return self.photos.count
+        case .search:
+            return self.searchs.count
+        }
+        
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell: ListPhotosViewCell
-        cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cellReuseIdentifier,
+        cell = collectionView.dequeueReusableCell(withReuseIdentifier: "listCell",
                                                   for: indexPath) as! ListPhotosViewCell
         
 
@@ -148,9 +217,12 @@ class ListPhotosViewController: UICollectionViewController {
         
         self.currentIndex = indexPath.row
     }
-    
 
-    // MARK: UICollectionViewDelegate
+}
+
+
+// MARK: - UICollectionView Delegate
+extension ListPhotosViewController {
 
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
@@ -172,7 +244,8 @@ class ListPhotosViewController: UICollectionViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.collectionView.backgroundColor = .black
 
-        self.makeUI()
+        //self.makeUI()
+        self.closeButton.isHidden = false
 
         
         self.collectionView.scrollToItem(at: indexPath, at: .right, animated: false)
@@ -194,37 +267,9 @@ class ListPhotosViewController: UICollectionViewController {
     
     }
     */
-    
-    func makeUI() {
-        let closeButton = UIButton(type: .system)
-        closeButton.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
-        closeButton.setTitle("Close", for: .normal)
-        closeButton.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
-        self.view.addSubview(closeButton)
-    }
-    
-    @objc func buttonAction(_ sender:UIButton!) {
-        
-       print("Button tapped")
-
-        self.collectionView.isPagingEnabled = false
-
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .vertical
-        }
-
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.collectionView.backgroundColor = .white
-
-        self.collectionView.scrollToItem(at: IndexPath(row: self.currentIndex, section: 0), at: .top, animated: false)
-
-
-    }
-
-
 }
 
-
+// MARK: - UICollectionViewDelegate FlowLayout
 extension ListPhotosViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -248,4 +293,61 @@ extension ListPhotosViewController: UICollectionViewDelegateFlowLayout {
         
         return itemSize
     }
+}
+
+
+
+// MARK: - UISearchBar Delegate
+extension ListPhotosViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        self.currentSceenType = .search
+        
+      if let text = searchBar.text {
+        self.requestSearch(keyword: text)
+      }
+        
+        self.searchController.dismiss(animated: true, completion: nil)
+        self.searchCloseButton(true)
+        
+    }
+    
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        self.searchController.dismiss(animated: true, completion: nil)
+//
+//        self.currentSceenType = .list
+//
+//    }
+
+}
+
+
+
+
+// MARK: - UIViewController Extension
+extension UIViewController {
+
+    func showErrorAlert(error: Error, viewController: UIViewController) {
+      let alertController = UIAlertController(title: "⚠️", message: error.localizedDescription, preferredStyle: .alert)
+      alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+      viewController.present(alertController, animated: true, completion: nil)
+    }
+
+}
+
+
+// MARK: - Custom CellectionViewCell
+class ListPhotosViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.imageView.image = nil
+    }
+
+}
+
+enum SceenType {
+    case list, search
 }

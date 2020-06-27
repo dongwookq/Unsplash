@@ -12,8 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    //private
-    let appDependency: AppDependency
+    private let appDependency: AppDependency
     
     // iOS 시스템에 의해 자동으로 호출되는 생성자
     private override init() {

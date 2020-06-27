@@ -11,8 +11,8 @@ import Foundation
 import Alamofire
 
 protocol UnsplashServiceProtocol {
-//    @discardableResult
-//    func search(keyword: String, completionHandler: @escaping (Result<PhotoListResult>) -> Void) -> DataRequest
+    @discardableResult
+    func search(keyword: String, completionHandler: @escaping (Result<SearchResult>) -> Void) -> DataRequest
     
     @discardableResult
     func list(completionHandler: @escaping (Result<[PhotoListResult]>) -> Void) -> DataRequest
@@ -28,15 +28,15 @@ final class UnsplashService: UnsplashServiceProtocol {
     }
     
     @discardableResult
-    func search(keyword: String, completionHandler: @escaping (Result<PhotoListResult>) -> Void) -> DataRequest {
+    func search(keyword: String, completionHandler: @escaping (Result<SearchResult>) -> Void) -> DataRequest {
         
-        let url = "https://api.github.com/search/repositories"
-        let parameters: Parameters = ["q": keyword]
+        let url = "https://api.unsplash.com//search/photos?"
+        let parameters: Parameters = ["query": keyword, "page": "1", "per_page": "30", "client_id": "rbyQZbn3ySVAfya2-idgr9W2Uo2_-RnsJkaA358YIB4"]
         return self.sessionManager.request(url, method: .get, parameters: parameters, encoding: URLEncoding(), headers: nil)
           .responseData { response in
             let decoder = JSONDecoder()
             let result = response.result.flatMap {
-              try decoder.decode(PhotoListResult.self, from: $0)
+              try decoder.decode(SearchResult.self, from: $0)
             }
             completionHandler(result)
           }
@@ -114,4 +114,30 @@ final class UnsplashService: UnsplashServiceProtocol {
 //            URLQueryItem(name: "max-h", value: "\(height)")
 //        ])
 //    }
+    
+    
 }
+
+//extension URL {
+//    func appending(queryItems: [URLQueryItem]) -> URL {
+//        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true) else {
+//            return self
+//        }
+//
+//        var queryDictionary = [String: String]()
+//        if let queryItems = components.queryItems {
+//            for item in queryItems {
+//                queryDictionary[item.name] = item.value
+//            }
+//        }
+//
+//        for item in queryItems {
+//            queryDictionary[item.name] = item.value
+//        }
+//
+//        var newComponents = components
+//        newComponents.queryItems = queryDictionary.map({ URLQueryItem(name: $0.key, value: $0.value) })
+//
+//        return newComponents.url ?? self
+//    }
+//}

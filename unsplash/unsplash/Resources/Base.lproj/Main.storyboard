@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="248.80000000000001" y="129.98500749625188"/>
         </scene>
-        <!--Title-->
+        <!--Unsplash-->
         <scene sceneID="15P-VI-P5M">
             <objects>
                 <collectionViewController storyboardIdentifier="ListPhotosViewController" id="I2y-yT-gVC" customClass="ListPhotosViewController" customModule="unsplash" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,9 +70,7 @@
                             <outlet property="delegate" destination="I2y-yT-gVC" id="Wn0-3d-Z8g"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Title" id="KfH-J5-sxt">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="fct-tM-O9O"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Unsplash" id="KfH-J5-sxt"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kwn-2Y-DB1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
